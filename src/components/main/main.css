@@ -10,23 +10,89 @@
     height:15vh;
     display: flex;
     flex-direction: row;
-    background-color: red;
     align-items: center;
     justify-content: center;
+    background-color: #808080;
 }
 
 .objective-function-panel{
     width: 100vw;
-    height: 40vh;
+    height: 30vh;
     display:flex;
-    flex-direction: column;
-    background-color: blue;
+    flex-direction: row;
 }
+.objective-function{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+}
+.left_ofp{
+    height: 100%;
+    width: 50%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.right_ofp{
+    height: 100%;
+    width: 50%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-feature{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+
 .generated-spells-panel{
     width: 100vw;
-    height:45vh;
+    height:55vh;
     display: flex;
     flex-direction: row;
-    background-color: yellow;
-    justify-content: center;
+}
+
+.spell-name{
+    width: 50%;
+    height: 100%;
+    display:flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.ranked-results{
+    width: 50%;
+    height: 100%;
+    display:flex;
+    flex-direction: row;
+   justify-content: center;
+   overflow-x: hidden;
+}
+
+.spell-box{
+    display:flex;
+    flex-direction: column;
+}
+.space{
+    margin-left: 150px;
+}
+.bar{
+    overflow-y:scroll;
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.word{
+    margin: 5px 10px;
 }
