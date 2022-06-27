@@ -21,11 +21,11 @@ export default function Main(){
     return(
         <div className = "main">
             <div className = "control-panel">
-            <Stack spacing={30} direction = "row">
-               <Button size="large" variant="contained">Try a new spell</Button> 
-               <img className = "progress_bar" src = {UI} width = "100" height = "100" />
-               <img className = "current_level" src = {UI} width = "100" height = "100" />
-               </Stack>    
+                <Box sx={{m:1}}>
+               <Button variant="contained">Try a new spell</Button> 
+               </Box>
+               <img className = "progress_bar control-space" src = {UI} width = "100" height = "100" />
+               <img className = "current_level control-space" src = {UI} width = "100" height = "100" />
             </div>
 
             <div className = "objective-function-panel">
