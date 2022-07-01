@@ -2,6 +2,7 @@ import UI from "../assets/image.png";
 import React from "react";
 
 export const rankedResult = () => {
+    console.log("Hugo TODO: the results in Your Spell and Merlin's Spell are calculted by spell name and the feature weights user adjusted");
     return(
         <div className = "ranked-results">
             <div className = "spell-box">

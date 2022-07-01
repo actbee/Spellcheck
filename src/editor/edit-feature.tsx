@@ -2,8 +2,10 @@ import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import React from 'react';
 import UI from "../assets/image.png";
+import { featureFunction } from './feature-function';
 
 export const editFeature = () => {
+    console.log("Xuedan TODO: finish the bundle part, bundle the change of the weight to its corresponed feature.");
     return(
     <div className = "edit-feature">
     <img className = "feature1" src = {UI} width = "100" height = "100" />
