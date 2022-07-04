@@ -15,6 +15,7 @@ import { featureFunction } from "../../editor/feature-function"
 import { editFeature } from "../../editor/edit-feature"
 import { spellName } from "../../editor/spell-name";
 import { rankedResult } from "../../editor/ranked-result";
+import { newspell } from "../../editor/newspell";
 
 
 export default function Main(){
@@ -22,7 +23,7 @@ export default function Main(){
         <div className = "main">
             <div className = "control-panel">
                 <Box sx={{m:1}}>
-               <Button variant="contained">Try a new spell</Button> 
+               <Button variant="contained" onClick = {newspell}>Try a new spell</Button> 
                </Box>
                <img className = "progress_bar control-space" src = {UI} width = "100" height = "100" />
                <img className = "current_level control-space" src = {UI} width = "100" height = "100" />
