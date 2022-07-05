@@ -21,15 +21,15 @@ export const featureFunction = (level: number = 0) => {
     return(
         <div className = "objective-function">
          <button className = "feature-button" id = "1"  onClick = {() => chooseFeature(1)}>
-        <img className = "feature1" src = {UI} width = "100" height = "100" />
+        <img className = "feature1" id = "img1" src = {UI} width = "100" height = "100" />
         </button>
         <p> &nbsp; &nbsp;&nbsp;   + &nbsp; &nbsp; &nbsp;   </p>
         <button className = "feature-button" id = "2" onClick = {() => chooseFeature(2)}>
-        <img className = "feature2" src = {UI} width = "100" height = "100" />
+        <img className = "feature2" id = "img2" src = {UI} width = "100" height = "100" />
         </button>
         <p> &nbsp; &nbsp; &nbsp;   +  &nbsp; &nbsp; &nbsp;  </p>
         <button className = "feature-button" id = "3" onClick = {() => chooseFeature(3)}>
-        <img className = "feature3" src = {UI} width = "100" height = "100" />
+        <img className = "feature3" id = "img3" src = {UI} width = "100" height = "100" />
         </button>
        
         {
