@@ -1,5 +1,6 @@
-import { level } from "./atoms";
+import { level, selected_feature } from "./atoms";
 
 export{
-    level
+    level,
+    selected_feature,
 }

@@ -16,9 +16,12 @@ import { editFeature } from "../../editor/edit-feature"
 import { spellName } from "../../editor/spell-name";
 import { rankedResult } from "../../editor/ranked-result";
 import { newspell } from "../../editor/newspell";
+import {useRecoilState, useRecoilValue} from "recoil";
+import { level } from "../../store";
 
 
 export default function Main(){
+    const sys_level = useRecoilValue(level);
     return(
         <div className = "main">
             <div className = "control-panel">
@@ -33,7 +36,7 @@ export default function Main(){
                 <div className = "left_ofp">
                <p>Objective function:</p>
                <br/>
-                {featureFunction()} 
+                {featureFunction(sys_level)} 
                </div>
 
                <div className = "right_ofp">
