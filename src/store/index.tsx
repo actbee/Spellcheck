@@ -1,6 +1,10 @@
-import { level, selected_feature } from "./atoms";
+import { level, selected_feature, feature1, feature2, feature3, feature4 } from "./atoms";
 
 export{
     level,
     selected_feature,
+    feature1,
+    feature2,
+    feature3,
+    feature4,
 }

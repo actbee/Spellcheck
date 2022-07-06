@@ -5,9 +5,11 @@ export type feature = {
     value: number,
     weight: number,
     img: string,
+    /*
     scale: number,
     selected: boolean,
     hidden: boolean,
+    */
 }
 
 export type featureFunction = {
