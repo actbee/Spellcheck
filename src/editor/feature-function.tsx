@@ -23,6 +23,7 @@ export const featureFunction = (level: number = 0) => {
         var btn = document.getElementById(num.toString());
         btn!.style.backgroundColor = "black";
         setselfeature(num);
+        
     }
 
     return(

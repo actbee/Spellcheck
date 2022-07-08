@@ -5,7 +5,7 @@ import UI from "../assets/image.png";
 import { featureFunction } from './feature-function';
 import {useRecoilState, useRecoilValue} from "recoil";
 import { selected_feature, feature1, feature2, feature3, feature4} from "../store";
-import { forEachLeadingCommentRange } from 'typescript';
+import { forEachLeadingCommentRange, validateLocaleAndSetLanguage } from 'typescript';
 
 export const editFeature = () => {
     const selfeature = useRecoilValue(selected_feature);
@@ -13,6 +13,7 @@ export const editFeature = () => {
     const [f2, setf2] = useRecoilState(feature2);
     const [f3, setf3] = useRecoilState(feature3);
     const [f4, setf4] = useRecoilState(feature4);
+    
     var sel = f1;
     if(selfeature == 2){
         sel = f2;
@@ -25,13 +26,12 @@ export const editFeature = () => {
     }
     
     const feaModify = (value: any) => {
-            var weight = 1 + (value - 50) * 0.01;
+            var w = 1 + (value - 50) * 0.01;
             var img = document.getElementById("img"+selfeature.toString());
-            img!.style.width = (100 * weight).toString()+"px";
-            console.log((100 * weight).toString());
+            img!.style.width = (100 * w).toString()+"px";
+            console.log((100 * w).toString());
             img!.style.height = img!.style.width;
-      
-           
+  
     }
 
     return(

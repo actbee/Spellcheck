@@ -1,4 +1,4 @@
-import UI from "../assets/image.png";
+import UI from "../image.png";
 import React from "react";
 
 export const rankedResult = () => {

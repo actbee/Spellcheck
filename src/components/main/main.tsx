@@ -10,7 +10,6 @@ import Slider from '@mui/material/Slider';
 import {useState, useRef} from "react";
 import IconButton from '@mui/material/IconButton';
 import {readUI} from '../../editor/readUI';
-import UI from "../../assets/image.png";
 import { featureFunction } from "../../editor/feature-function"
 import { editFeature } from "../../editor/edit-feature"
 import { spellName } from "../../editor/spell-name";
@@ -18,6 +17,7 @@ import { rankedResult } from "../../editor/ranked-result";
 import { newspell } from "../../editor/newspell";
 import {useRecoilState, useRecoilValue} from "recoil";
 import { level } from "../../store";
+import UI from "../../image.png";
 
 
 export default function Main(){
