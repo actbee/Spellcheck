@@ -11,13 +11,41 @@ export const selected_feature = atom({
     default: 0,
 })
 
+export const features = atom<feature[]>({
+   key: "features",
+   default: [{
+    type: "feature",
+    value: 10,
+    weight: 1,
+    img: "../assets/image.png",
+   },
+   {
+     type: "feature",
+     value: 10,
+     weight: 1,
+     img: "../assets/image.png",
+   },
+   {
+     type: "feature",
+     value: 10,
+     weight: 1,
+     img: "../assets/image.png",
+   },
+   {
+      type: "feature",
+      value: 10,
+      weight: 1,
+      img: "../assets/image.png",
+   }]
+})
+
 export const feature1 = atom<feature>({
    key: "feature1",
    default: {
     type: "feature",
     value: 10,
     weight: 1,
-    img: "../assets/image.png",
+    img: "../assets/1.jpeg",
    }
 })
 
