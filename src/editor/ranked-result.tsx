@@ -7,14 +7,17 @@ import { levelbar } from "./levelbar";
 
 export const rankedResult = () => {
     console.log("Hugo TODO: the results in Your Spell and Merlin's Spell are calculted by spell name and the feature weights user adjusted");
+    
+    /*
+    
     // where are user and Merlin's featureFunction stored
     let userFunction: featureFunction, answerFunction: featureFunction, merlinFunction: featureFunction;
     // type error here
-    let spells = new spellname[]; // all spells
+    let spells : spellname[]; // all spells
     let threshold = 30; // only spells with distance less than threshold are suggested
 
-    let userSuggested = new spellname[];
-    let merlinSuggested = new spellname[]:
+    let userSuggested : spellname[];
+    let merlinSuggested : spellname[];
     for (let i = 0; i < spells.length; i++) {
         // how does levelbar.tsx receive inputs
         if (levelbar(userFunction, spells[i]) < threshold) {
@@ -24,6 +27,7 @@ export const rankedResult = () => {
             merlinSuggested.insert(spells[i])
         }
     }
+    */
 
     // display images corresonding to userSuggested and merlinSuggested in the UI
     return(
