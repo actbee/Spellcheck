@@ -12,9 +12,9 @@ const fireSpell: spellname = {
     value: 1,
 };
 
-const waterSpell: spellname = {
-    type: "water",
-    img: "https://www.istockphoto.com/photos/water-drop",
+const windSpell: spellname = {
+    type: "wind",
+    img: "https://www.istockphoto.com/photos/wind",
     value: 2,
 };
 
@@ -25,6 +25,6 @@ const earthSpell: spellname = {
 };
 
 
-export const spellbook = [fireSpell, waterSpell, earthSpell];
+export const spellbook = [fireSpell, windSpell, earthSpell];
 
 
