@@ -5,7 +5,8 @@ import UI from "../assets/image.png";
 import { featureFunction } from './feature-function';
 import {useRecoilState, useRecoilValue} from "recoil";
 import { selected_feature, feature1, feature2, feature3, feature4} from "../store";
-import { forEachLeadingCommentRange, validateLocaleAndSetLanguage } from 'typescript';
+import { forEachLeadingCommentRange, validateLocaleAndSetLanguage, walkUpBindingElementsAndPatterns } from 'typescript';
+import { getSwitchBaseUtilityClass } from '@mui/material/internal/switchBaseClasses';
 
 export const editFeature = () => {
     const selfeature = useRecoilValue(selected_feature);
@@ -24,15 +25,50 @@ export const editFeature = () => {
     else if(selfeature == 4){
       sel = f4;
     }
+
+   
+
     
     const feaModify = (value: any) => {
-            var w = 1 + (value - 50) * 0.01;
+            var w = value;
             var img = document.getElementById("img"+selfeature.toString());
             img!.style.width = (100 * w).toString()+"px";
             console.log((100 * w).toString());
             img!.style.height = img!.style.width;
-  
+            if(sel == f1){
+            setf1({ 
+            type: "feature",
+            value: 10,
+            weight: w,
+            img: "../assets/1.jpeg",
+          });
+        }
+            else if(sel == f2){
+              setf2({ 
+                type: "feature",
+                value: 10,
+                weight: w,
+                img: "../assets/image.png",
+              });
+            }
+            else if(sel == f3){
+              setf3({ 
+                type: "feature",
+                value: 10,
+                weight: w,
+                img: "../assets/image.png",
+              });
+            }
+            else{
+              setf4({ 
+                type: "feature",
+                value: 10,
+                weight: w,
+                img: "../assets/image.png",
+              });
+            }
     }
+
 
     return(
       <div>
@@ -41,13 +77,14 @@ export const editFeature = () => {
     <img className = {"feature"+selfeature.toString()}  src = {sel.img} width = "100" height = "100" />
     <Box sx={{ margin: 5, width: 300 }}>
     <Slider
-      className = "feature"
-      defaultValue={30}
+      className = "feature-slider"
+      value = {sel.weight}
+      defaultValue={1}
       valueLabelDisplay="auto"
-      step={10}
+      step={0.1}
       marks
-      min={0}
-      max={100}
+      min={0.5}
+      max={1.5}
       onChange = {(event, value) => feaModify(value)}
      />
      </Box>
