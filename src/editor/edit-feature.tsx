@@ -25,9 +25,6 @@ export const editFeature = () => {
     else if(selfeature == 4){
       sel = f4;
     }
-
-   
-
     
     const feaModify = (value: any) => {
             var w = value;
@@ -93,3 +90,30 @@ export const editFeature = () => {
       </div>
     );
 }
+
+
+/*
+level: 2 -> features[]
+
+database -> spell-names
+
+spell name -> f1, f2, f3 f4 /// fn    ((f1a,f1b,f1c),(f2a,f2b,f2c), ....)
+              w1, w2, w3 w4
+              
+              fi is vector
+              v = sum fi * wi (v is vector)
+
+
+ merlin spell: wm1, wm2, wm3 -> value-merlin 
+            
+              vm 
+
+ database->   spell-word  (a,b,c)
+
+
+ Your spell:  [spellword]    ranked list: min d(spellword, v)
+
+ Merlin's spell: [spellword]  ranked list: min d(spellword, vm)
+
+
+*/
