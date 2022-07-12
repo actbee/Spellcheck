@@ -18,6 +18,8 @@ import { newspell } from "../../editor/newspell";
 import {useRecoilState, useRecoilValue} from "recoil";
 import { level } from "../../store";
 import UI from "../../image.png";
+//import { Bar as ProgressBar } from 'react-native-progress';
+import { levelbar } from "../../editor/levelbar";
 
 
 export default function Main(){
@@ -28,7 +30,20 @@ export default function Main(){
                 <Box sx={{m:1}}>
                <Button variant="contained" onClick = {newspell}>Try a new spell</Button> 
                </Box>
-               <img className = "progress_bar control-space" src = {UI} width = "100" height = "100" />
+               
+               
+                {/* <ProgressBar
+                    progress={sys_level/100}
+                    color="#00ff00"
+                    borderColor="#ff0000"
+                    width={300}
+                    height={20}
+                    borderWidth={2}
+                    borderRadius={5}
+    
+                    /> */}
+                
+
                <img className = "current_level control-space" src = {UI} width = "100" height = "100" />
             </div>
 
