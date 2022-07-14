@@ -3,31 +3,44 @@ import React from "react";
 import { featureFunction } from "../models/feature"
 import { spellname } from "../models/spellname"
 import { speedDialClasses } from "@mui/material";
-import { levelbar } from "./levelbar";
+import { valueToPercent } from "@mui/base";
+import { spelllist } from "../models/spelllist";
 
 export const rankedResult = () => {
     console.log("Hugo TODO: the results in Your Spell and Merlin's Spell are calculted by spell name and the feature weights user adjusted");
     
-    /*
     
-    // where are user and Merlin's featureFunction stored
-    let userFunction: featureFunction, answerFunction: featureFunction, merlinFunction: featureFunction;
-    // type error here
-    let spells : spellname[]; // all spells
-    let threshold = 30; // only spells with distance less than threshold are suggested
+    // TODO: get global variables userFunction and merlinFunctions (their weight vectors)
+    let userFunction: featureFunction, merlinFunction: featureFunction;
+    let spells : spellname[]; // TODO: import all spells
+    let userVal = value(userFunction), merlinVal = value(merlinFunction); // TODO: calculate value vector using spellname and user weights
+    function compareUser(a : spellname, b : spellname) {
+        let da = 0;
+        for (var i = 0; i < userVal.length; i++) {
+            da += (userVal[i] - a.weights[i]) ** 2 // TODO: define spellnames and their weight vectors
+        }        
 
-    let userSuggested : spellname[];
-    let merlinSuggested : spellname[];
-    for (let i = 0; i < spells.length; i++) {
-        // how does levelbar.tsx receive inputs
-        if (levelbar(userFunction, spells[i]) < threshold) {
-            userSuggested.insert(spells[i]);
-        }
-        if (levelbar(merlinFunction, spells[i]) < threshold) {
-            merlinSuggested.insert(spells[i])
-        }
+        let db = 0;
+        for (var i = 0; i < userVal.length; i++) {
+            da += (userVal[i] - b.weights[i]) ** 2
+        }        
+        return da - db;
     }
-    */
+
+    function compareMerlin(a : spellname, b : spellname) {
+        let da = 0;
+        for (var i = 0; i < merlinVal.length; i++) {
+            da += (merlinVal[i] - a.weights[i]) ** 2
+        }        
+
+        let db = 0;
+        for (var i = 0; i < merlinVal.length; i++) {
+            da += (merlinVal[i] - b.weights[i]) ** 2 
+        }        
+        return da - db;
+    }
+    let userSuggested = spells.sort(compareUser);
+    let merlinSuggested = spells.sort(compareMerlin);
 
     // display images corresonding to userSuggested and merlinSuggested in the UI
     return(
@@ -35,20 +48,20 @@ export const rankedResult = () => {
             <div className = "spell-box">
              <p>Your Spell: </p>
              <div className = "bar">
-             <img className = "word" src = {UI} width = "75" height = "75" />
-             <img className = "word" src = {UI} width = "75" height = "75" />
-             <img className = "word" src = {UI} width = "75" height = "75" />
-             <img className = "word" src = {UI} width = "75" height = "75" />
-             <img className = "word" src = {UI} width = "75" height = "75" />
+             <img className = "word" src = {userSuggested[0].img} width = "75" height = "75" />
+             <img className = "word" src = {userSuggested[1].img} width = "75" height = "75" />
+             <img className = "word" src = {userSuggested[2].img} width = "75" height = "75" />
+             <img className = "word" src = {userSuggested[3].img} width = "75" height = "75" />
+             <img className = "word" src = {userSuggested[4].img} width = "75" height = "75" />
           
              </div>
              </div>
              <div className = "spell-box space">
              <p>Merlin's Spell: </p>
              <div className = "bar">
-             <img className = "word" src = {UI} width = "75" height = "75" />
-             <img className = "word" src = {UI} width = "75" height = "75" />
-             <img className = "word" src = {UI} width = "75" height = "75" />
+             <img className = "word" src = {merlinSuggested[0].img} width = "75" height = "75" />
+             <img className = "word" src = {merlinSuggested[1].img} width = "75" height = "75" />
+             <img className = "word" src = {merlinSuggested[2].img} width = "75" height = "75" />
              </div>
              </div>
         </div>
