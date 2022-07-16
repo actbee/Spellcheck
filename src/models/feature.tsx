@@ -5,6 +5,7 @@ export type feature = {
     value: number,
     weight: number,
     img: string,
+    id: string,
     /*
     scale: number,
     selected: boolean,

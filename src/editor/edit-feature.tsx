@@ -4,9 +4,10 @@ import React from 'react';
 import UI from "../assets/image.png";
 import { featureFunction } from './feature-function';
 import {useRecoilState, useRecoilValue} from "recoil";
-import { selected_feature, feature1, feature2, feature3, feature4} from "../store";
+import { selected_feature, features, feature1, feature2, feature3, feature4} from "../store";
 import { forEachLeadingCommentRange, validateLocaleAndSetLanguage, walkUpBindingElementsAndPatterns } from 'typescript';
 import { getSwitchBaseUtilityClass } from '@mui/material/internal/switchBaseClasses';
+import { setDefaultResultOrder } from 'dns/promises';
 
 export const editFeature = () => {
     const selfeature = useRecoilValue(selected_feature);
@@ -14,17 +15,9 @@ export const editFeature = () => {
     const [f2, setf2] = useRecoilState(feature2);
     const [f3, setf3] = useRecoilState(feature3);
     const [f4, setf4] = useRecoilState(feature4);
+
+    const [fs, setfs] = useRecoilState(features);
     
-    var sel = f1;
-    if(selfeature == 2){
-        sel = f2;
-    }
-    else if(selfeature == 3){
-      sel = f3;
-    }
-    else if(selfeature == 4){
-      sel = f4;
-    }
     
     const feaModify = (value: any) => {
             var w = value;
@@ -32,38 +25,15 @@ export const editFeature = () => {
             img!.style.width = (100 * w).toString()+"px";
             console.log((100 * w).toString());
             img!.style.height = img!.style.width;
-            if(sel == f1){
-            setf1({ 
-            type: "feature",
-            value: 10,
-            weight: w,
-            img: "../assets/1.jpeg",
-          });
-        }
-            else if(sel == f2){
-              setf2({ 
-                type: "feature",
-                value: 10,
-                weight: w,
-                img: "../assets/image.png",
-              });
-            }
-            else if(sel == f3){
-              setf3({ 
-                type: "feature",
-                value: 10,
-                weight: w,
-                img: "../assets/image.png",
-              });
-            }
-            else{
-              setf4({ 
-                type: "feature",
-                value: 10,
-                weight: w,
-                img: "../assets/image.png",
-              });
-            }
+
+            let tem = fs.map(item =>{
+              if(item.id == selfeature.toString()){
+                return {...item, weight: w};
+              }
+              return item;
+            })
+   
+            setfs(tem);
     }
 
 
@@ -71,11 +41,11 @@ export const editFeature = () => {
       <div>
       { selfeature > 0 &&
     <div className = "edit-feature">
-    <img className = {"feature"+selfeature.toString()}  src = {sel.img} width = "100" height = "100" />
+    <img className = {"feature"+selfeature.toString()}  src = {fs[selfeature-1].img} width = "100" height = "100" />
     <Box sx={{ margin: 5, width: 300 }}>
     <Slider
       className = "feature-slider"
-      value = {sel.weight}
+      value = {fs[selfeature-1].weight}
       defaultValue={1}
       valueLabelDisplay="auto"
       step={0.1}

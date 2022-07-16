@@ -15,33 +15,38 @@ export const features = atom<feature[]>({
    key: "features",
    default: [{
     type: "feature",
+    id: "1",
     value: 10,
     weight: 1,
-    img: "../assets/image.png",
+    img: "../assets/Objective_function_panel/Blue_potion.png",
    },
    {
      type: "feature",
+     id: "2",
      value: 10,
      weight: 1,
-     img: "../assets/image.png",
+     img: "../assets/Objective_function_panel/Clear_blue_potion.png",
    },
    {
      type: "feature",
+     id: "3",
      value: 10,
      weight: 1,
-     img: "../assets/image.png",
+     img: "../assets/Objective_function_panel/Clear_pink_potion.png",
    },
    {
       type: "feature",
+      id: "4",
       value: 10,
       weight: 1,
-      img: "../assets/image.png",
+      img: "../assets/Objective_function_panel/Clear_red_potion.png",
    }]
 })
 
 export const feature1 = atom<feature>({
    key: "feature1",
    default: {
+    id: "1",
     type: "feature",
     value: 10,
     weight: 1,
@@ -53,6 +58,7 @@ export const feature2 = atom<feature>({
     key: "feature2",
     default: {
      type: "feature",
+     id: "2",
      value: 10,
      weight: 1,
      img: "../assets/image.png",
@@ -63,6 +69,7 @@ export const feature2 = atom<feature>({
     key: "feature3",
     default: {
      type: "feature",
+     id: "3",
      value: 10,
      weight: 1,
      img: "../assets/image.png",
@@ -73,6 +80,7 @@ export const feature2 = atom<feature>({
     key: "feature4",
     default: {
      type: "feature",
+     id: "4",
      value: 10,
      weight: 1,
      img: "../assets/image.png",

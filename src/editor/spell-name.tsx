@@ -8,7 +8,7 @@ export const spellName = ()=>{
     return(
     <div className = "spell-name">
          <p>Spell Name: </p>
-         <img className = "spellname" src = {spell.img} width = "300" height = "300" />
+         <img className = "spellname" src = {UI} width = "300" height = "300" />
     </div>
     );
 }

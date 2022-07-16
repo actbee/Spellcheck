@@ -9,7 +9,7 @@ import { spelllist } from "../models/spelllist";
 export const rankedResult = () => {
     console.log("Hugo TODO: the results in Your Spell and Merlin's Spell are calculted by spell name and the feature weights user adjusted");
     
-    
+    /*
     // TODO: get global variables userFunction and merlinFunctions (their weight vectors)
     let userFunction: featureFunction, merlinFunction: featureFunction;
     let spells : spellname[]; // TODO: import all spells
@@ -42,8 +42,12 @@ export const rankedResult = () => {
     let userSuggested = spells.sort(compareUser);
     let merlinSuggested = spells.sort(compareMerlin);
 
+*/
+
     // display images corresonding to userSuggested and merlinSuggested in the UI
     return(
+
+        /*
         <div className = "ranked-results">
             <div className = "spell-box">
              <p>Your Spell: </p>
@@ -65,5 +69,29 @@ export const rankedResult = () => {
              </div>
              </div>
         </div>
+        */
+
+        <div className = "ranked-results">
+            <div className = "spell-box">
+             <p>Your Spell: </p>
+             <div className = "bar">
+             <img className = "word" src = {UI} width = "75" height = "75" />
+             <img className = "word" src = {UI} width = "75" height = "75" />
+             <img className = "word" src = {UI} width = "75" height = "75" />
+             <img className = "word" src = {UI} width = "75" height = "75" />
+             <img className = "word" src = {UI} width = "75" height = "75" />
+          
+             </div>
+             </div>
+             <div className = "spell-box space">
+             <p>Merlin's Spell: </p>
+             <div className = "bar">
+             <img className = "word" src = {UI} width = "75" height = "75" />
+             <img className = "word" src = {UI} width = "75" height = "75" />
+             <img className = "word" src = {UI} width = "75" height = "75" />
+             </div>
+             </div>
+        </div>
         );
+
 }
