@@ -14,21 +14,54 @@ import { featureFunction } from "../../editor/feature-function"
 import { editFeature } from "../../editor/edit-feature"
 import { spellName } from "../../editor/spell-name";
 import { rankedResult } from "../../editor/ranked-result";
-import { newspell } from "../../editor/newspell";
+import {newspell} from "../../editor/newspell";
 import {useRecoilState, useRecoilValue} from "recoil";
-import { level } from "../../store";
+import { level, currentspellname, selected_feature, features } from "../../store";
 import UI from "../../image.png";
+
 //import { Bar as ProgressBar } from 'react-native-progress';
 import { levelbar } from "../../editor/levelbar";
+import {getRandomInt} from "../../editor/getRandomInt";
 
 
 export default function Main(){
     const sys_level = useRecoilValue(level);
+    const [sn, setsn] = useRecoilState(currentspellname);
+    const [fs, setfs] = useRecoilState(features);
+
+
+
+    const newgame = () => {
+        let ns = newspell(); 
+        setsn(ns);    
+
+        // reset all of the features
+        let newfs = ns.value;
+        let tem = fs.map(item =>{
+                   var iid = parseInt(item.id);
+                   var nw = newfs[iid - 1];
+                  return {...item, value: nw, weight: 1, merlinweight: getRandomInt(5,16)*0.1};
+              });
+
+        // and reset the size of image icons of these features       
+        for(var i = 1; i <= fs.length; i++){
+            var img = document.getElementById("img"+(i).toString());
+            if(img){
+            img.style.width = (100).toString()+"px";
+            img.style.height = img!.style.width;
+            }
+        }      
+     
+        setfs(tem);
+
+    }
+
+
     return(
         <div className = "main">
             <div className = "control-panel">
                 <Box sx={{m:1}}>
-               <Button variant="contained" onClick = {newspell}>Try a new spell</Button> 
+               <Button variant="contained" onClick = {newgame}>Try a new spell</Button> 
                </Box>
                
                

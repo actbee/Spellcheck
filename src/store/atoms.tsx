@@ -1,5 +1,6 @@
 import {atom, selector} from "recoil";
-import {feature} from "../models/feature"
+import {feature} from "../models/feature";
+import {spellname} from "../models/spellname";
 
 export const level = atom({
     key: "current-level",
@@ -77,6 +78,16 @@ export const merlinfun = selector({
    }   
 })
 
+export const currentspellname = atom<spellname>({
+   key: "current-sn",
+   default: {
+      type: "spellname",
+      id: "1",
+      img: "../assets/Generated_spells_panel/Spell_name_tag/Tag_1.jpg",
+      value: [[1,1,1], [2,3,4], [5,1,2], [5,6,9]],
+   }
+   
+})
 
 
 

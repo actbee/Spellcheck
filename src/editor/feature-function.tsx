@@ -8,10 +8,8 @@ import { requirePropFactory } from "@mui/material";
 
 export const featureFunction = (level: number = 0) => {
     const [selfeature, setselfeature] = useRecoilState(selected_feature);
-
+    
     const [fs, setfs] = useRecoilState(features);
-    
-    
 
     const chooseFeature = (num: number) => {
         if(selfeature > 0){
@@ -44,7 +42,19 @@ export const featureFunction = (level: number = 0) => {
              level > 0 &&
              <div className = "objective-function">
                <p> &nbsp; &nbsp; &nbsp;   +  &nbsp; &nbsp; &nbsp;  </p>
-               <button>
+               <button className = "feature-button" id = "img4" onClick = {() => 
+               {
+                let tem = fs.map(item =>{
+                  if(item.id == "3"){
+                    return {...item, weight: 1};
+                  }
+                  return item;
+                })
+          
+                setfs(tem);
+                
+                chooseFeature(4);
+               }}>
                <img className = "feature4" src = {fs[3].img} width = "100" height = "100"/>
                </button>
             </div>        

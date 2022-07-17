@@ -7,4 +7,4 @@ const spellword1 : spellword = {
     value:[1, 1, 1],
 }
 
-export const spellbook = [spellword1];
+export const spellwords = [spellword1];

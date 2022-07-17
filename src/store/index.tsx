@@ -1,4 +1,4 @@
-import { level, selected_feature, features, userfun, merlinfun } from "./atoms";
+import { level, selected_feature, features, userfun, merlinfun, currentspellname } from "./atoms";
 
 export{
     level,
@@ -6,4 +6,5 @@ export{
     features,
     userfun,
     merlinfun,
+    currentspellname,
 }

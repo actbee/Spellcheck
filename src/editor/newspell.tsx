@@ -1,6 +1,5 @@
 import React from "react";
-import { spellbook } from "../database/spellwords";
-
+import { spellbook } from "../database/spellnames";
 
 export const newspell = () => {
     //console.log("Winston TODO: finish the reset of the system variables and return a new random spell name to restart")
@@ -15,5 +14,4 @@ export const newspell = () => {
     let randomSpell = spellbook[Math.floor(Math.random() * spellbook.length)];
 
     return randomSpell;
-
 }

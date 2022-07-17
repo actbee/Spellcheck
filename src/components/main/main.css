@@ -88,15 +88,14 @@
 .spell-box{
     display:flex;
     flex-direction: column;
+    width: 45%;
 }
 .space{
-    margin-left: 100px;
+    margin-left: 10px;
 }
 .bar{
-    overflow-y:scroll;
-    display:flex;
-    flex-direction: column;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    overflow-y: scroll;
 }
 .word{
     margin: 5px 10px;
