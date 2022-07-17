@@ -1,7 +1,8 @@
-import {feature, featureFunction} from "./feature"
+import {feature} from "./feature"
 
 export type spellname = {
-    type: string,
+    type: "spellname",
+    id: string,
     img: string,
-    value: number,
+    value: number[][],
 }

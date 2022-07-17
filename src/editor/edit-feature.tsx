@@ -4,14 +4,14 @@ import React from 'react';
 import UI from "../assets/image.png";
 import { featureFunction } from './feature-function';
 import {useRecoilState, useRecoilValue} from "recoil";
-import { selected_feature, features, fun} from "../store";
+import { selected_feature, features, userfun} from "../store";
 import { forEachLeadingCommentRange, validateLocaleAndSetLanguage, walkUpBindingElementsAndPatterns } from 'typescript';
 import { getSwitchBaseUtilityClass } from '@mui/material/internal/switchBaseClasses';
 import { setDefaultResultOrder } from 'dns/promises';
 
 export const editFeature = () => {
     const selfeature = useRecoilValue(selected_feature);
-    const sum = useRecoilValue(fun);
+    const sum = useRecoilValue(userfun);
 
     const [fs, setfs] = useRecoilState(features);
 

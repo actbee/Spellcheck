@@ -1,10 +1,10 @@
 import UI from "../image.png";
 import React from "react";
-import { featureFunction } from "../models/feature"
+import {userfun, merlinfun} from "../store";
 import { spellname } from "../models/spellname"
 import { speedDialClasses } from "@mui/material";
 import { valueToPercent } from "@mui/base";
-import { spelllist } from "../models/spelllist";
+import { spelllist } from "../models/spellword";
 
 export const rankedResult = () => {
     console.log("Hugo TODO: the results in Your Spell and Merlin's Spell are calculted by spell name and the feature weights user adjusted");

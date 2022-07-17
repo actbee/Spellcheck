@@ -1,5 +1,5 @@
 import React from "react";
-import { spellbook } from "./spells";
+import { spellbook } from "../database/spellwords";
 
 
 export const newspell = () => {

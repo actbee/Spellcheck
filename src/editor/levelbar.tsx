@@ -1,6 +1,6 @@
-import { featureFunction } from "../models/feature";
+import {useRecoilState, useRecoilValue} from "recoil";
 
-export const levelbar = (userFunction: featureFunction, answerFunction: featureFunction) =>  {
+export const levelbar = (userFunction: number[], answerFunction: number[]) =>  {
    //console.log("Winston TODO: calculate the distance between the user's answer and the correct one.")
     // const distance = (userAnswer: string, correctAnswer: string) => {
     //     const userAnswerArray = userAnswer.split("");
@@ -13,14 +13,9 @@ export const levelbar = (userFunction: featureFunction, answerFunction: featureF
     // } 
 
     let distance = 0;
-    for (let i = 0; i < answerFunction.feature_list.length; i++) {
-        distance += (answerFunction.feature_list[i].weight - userFunction.feature_list[i].weight) ** 2;
+    for (let i = 0; i < answerFunction.length; i++) {
+        distance += (answerFunction[i] - userFunction[i]) ** 2;
     }
     return distance ** 0.5; // linear distance
-
-
-    
-
-
 
 }

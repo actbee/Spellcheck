@@ -1,8 +1,9 @@
 
 export type spellword = {
-    type: "spell-word",
+    type: "spellword",
+    id: string,
     img: string,
-    value: number,
+    value: number[],
 }
 
 export type spelllist = {
