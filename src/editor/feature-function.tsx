@@ -2,7 +2,7 @@ import UI from "../assets/image.png";
 import React from "react";
 import Button from '@mui/material/Button';
 import {useRecoilState, useRecoilValue} from "recoil";
-import { selected_feature, features, feature1, feature2, feature3, feature4} from "../store";
+import { selected_feature, features} from "../store";
 import { requirePropFactory } from "@mui/material";
 
 
