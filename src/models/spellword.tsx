@@ -9,6 +9,5 @@ export type spellword = {
 export type spelllist = {
     type: "spell-list",
     spellarray : spellword[],
-    max : number,
 }
 

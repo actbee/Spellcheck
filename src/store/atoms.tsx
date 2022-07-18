@@ -49,7 +49,7 @@ export const features = atom<feature[]>({
 })
 
 export const userfun = selector({
-     key: "function",
+     key: "userfunction",
      get: ({get}) => {
         const fs = get(features);
         var sum = [0,0,0];
@@ -58,13 +58,12 @@ export const userfun = selector({
          sum[1]+= fs[i].weight * fs[i].value[1];
          sum[2]+= fs[i].weight * fs[i].value[2];
         }
-        
         return sum;
      }   
 })
 
 export const merlinfun = selector({
-   key: "function",
+   key: "merlinfunction",
    get: ({get}) => {
       const fs = get(features);
       var sum = [0,0,0];
@@ -73,7 +72,6 @@ export const merlinfun = selector({
        sum[1]+= fs[i].merlinweight * fs[i].value[1];
        sum[2]+= fs[i].merlinweight * fs[i].value[2];
       }
-      
       return sum;
    }   
 })
@@ -88,6 +86,8 @@ export const currentspellname = atom<spellname>({
    }
    
 })
+
+
 
 
 

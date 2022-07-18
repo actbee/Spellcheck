@@ -1,6 +1,6 @@
 import UI from "../image.png";
-import React from "react";
-import {userfun, merlinfun} from "../store";
+import React,  { useEffect } from "react";
+import {userfun, merlinfun, features} from "../store";
 import { spellname } from "../models/spellname"
 import { speedDialClasses } from "@mui/material";
 import { valueToPercent } from "@mui/base";
@@ -12,20 +12,21 @@ import { spellword } from "../models/spellword"
 
 
 export const rankedResult = () => {
-    console.log("Hugo TODO: the results in Your Spell and Merlin's Spell are calculted by spell name and the feature weights user adjusted");
+    // console.log("Hugo TODO: the results in Your Spell and Merlin's Spell are calculted by spell name and the feature weights user adjusted");
     
     
-    let userVal: number[] = useRecoilValue(userfun), merlinVal: number[] = useRecoilValue(merlinFun); // change to user and merlin's weight functions
-    let features: feature[] = []; // TODO: import featuers of current level
+    let userVal: number[] = useRecoilValue(userfun);
+    let merlinVal: number[] = useRecoilValue(merlinfun); // change to user and merlin's weight functions
+    let fs = useRecoilValue(features); // TODO: import featuers of current level
+
     function compareUser(a : spellword, b : spellword) {
         let da = 0;
         for (var i = 0; i < userVal.length; i++) {
             da += (userVal[i] - a.value[i]) ** 2
         }        
-
         let db = 0;
         for (var i = 0; i < userVal.length; i++) {
-            da += (userVal[i] - b.value[i]) ** 2
+            db += (userVal[i] - b.value[i]) ** 2
         }        
         return da - db;
     }
@@ -38,12 +39,19 @@ export const rankedResult = () => {
 
         let db = 0;
         for (var i = 0; i < merlinVal.length; i++) {
-            da += (merlinVal[i] - b.value[i]) ** 2 
+            db += (merlinVal[i] - b.value[i]) ** 2 
         }        
+
         return da - db;
     }
-    let userSuggested = spellwords.sort(compareUser);
-    let merlinSuggested = spellwords.sort(compareMerlin);
+     // use deep copy here
+    let userSuggested = [...spellwords].sort(compareUser);
+    let merlinSuggested = [...spellwords].sort(compareMerlin);
+    
+    useEffect(() => {
+        userSuggested = [...spellwords].sort(compareUser);
+        merlinSuggested = [...spellwords].sort(compareMerlin);
+    },[fs]);
 
 
 

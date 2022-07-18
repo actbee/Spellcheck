@@ -29,7 +29,11 @@ export default function Main(){
     const [sn, setsn] = useRecoilState(currentspellname);
     const [fs, setfs] = useRecoilState(features);
 
-
+    //used to init the game, only run in the begining
+    useEffect(() => {
+            newgame();
+        },[]);
+    
 
     const newgame = () => {
         let ns = newspell(); 
@@ -40,7 +44,11 @@ export default function Main(){
         let tem = fs.map(item =>{
                    var iid = parseInt(item.id);
                    var nw = newfs[iid - 1];
-                  return {...item, value: nw, weight: 1, merlinweight: getRandomInt(5,16)*0.1};
+               //   return {...item, value: nw, weight: 1, merlinweight: getRandomInt(5,16)*0.1};
+               if(item.id == "4" && sys_level == 0){
+                return {...item, value: nw, weight: 0, merlinweight: 0};
+               }
+               return {...item, value: nw, weight: 1, merlinweight: 0};
               });
 
         // and reset the size of image icons of these features       

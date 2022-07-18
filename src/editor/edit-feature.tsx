@@ -4,7 +4,7 @@ import React from 'react';
 import UI from "../assets/image.png";
 import { featureFunction } from './feature-function';
 import {useRecoilState, useRecoilValue} from "recoil";
-import { selected_feature, features, userfun} from "../store";
+import { selected_feature, features, userfun, merlinfun} from "../store";
 import { forEachLeadingCommentRange, validateLocaleAndSetLanguage, walkUpBindingElementsAndPatterns } from 'typescript';
 import { getSwitchBaseUtilityClass } from '@mui/material/internal/switchBaseClasses';
 import { setDefaultResultOrder } from 'dns/promises';
@@ -12,6 +12,7 @@ import { setDefaultResultOrder } from 'dns/promises';
 export const editFeature = () => {
     const selfeature = useRecoilValue(selected_feature);
     const sum = useRecoilValue(userfun);
+    const sys = useRecoilValue(merlinfun);
 
     const [fs, setfs] = useRecoilState(features);
 
@@ -32,7 +33,8 @@ export const editFeature = () => {
             })
    
             setfs(tem);
-            console.log("total:", sum);
+
+            console.log("fs", fs);
     }
 
 
