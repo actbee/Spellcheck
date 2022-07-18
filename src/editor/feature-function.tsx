@@ -27,11 +27,15 @@ export const featureFunction = (level: number = 0) => {
          <button className = "feature-button" id = "1"  onClick = {() => chooseFeature(1)}>
         <img className = "feature1" id = "img1" src = {fs[0].img} width = "100" height = "100" />
         </button>
-        <p> &nbsp; &nbsp;&nbsp;   + &nbsp; &nbsp; &nbsp;   </p>
+        <div>
+        <img className = "add" src = {"../assets/Objective_function_panel/Plus_symbol.png" } width = "30" height = "30" />
+        </div>
         <button className = "feature-button" id = "2" onClick = {() => chooseFeature(2)}>
         <img className = "feature2" id = "img2" src = {fs[1].img} width = "100" height = "100" />
         </button>
-        <p> &nbsp; &nbsp; &nbsp;   +  &nbsp; &nbsp; &nbsp;  </p>
+        <div>
+        <img className = "add" src = {"../assets/Objective_function_panel/Plus_symbol.png" } width = "30" height = "30" />
+        </div>
         <button className = "feature-button" id = "3" onClick = {() => chooseFeature(3)}>
         <img className = "feature3" id = "img3" src = {fs[2].img} width = "100" height = "100" />
         </button>
@@ -41,7 +45,9 @@ export const featureFunction = (level: number = 0) => {
          */        
              level > 0 &&
              <div className = "objective-function">
-               <p> &nbsp; &nbsp; &nbsp;   +  &nbsp; &nbsp; &nbsp;  </p>
+              <div>
+              <img className = "add" src = {"../assets/Objective_function_panel/Plus_symbol.png" } width = "30" height = "30" />
+              </div>
                <button className = "feature-button" id = "img4" onClick = {() => 
                {
                 let tem = fs.map(item =>{

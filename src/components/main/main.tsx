@@ -19,6 +19,7 @@ import {useRecoilState, useRecoilValue} from "recoil";
 import { level, currentspellname, selected_feature, features } from "../../store";
 import UI from "../../image.png";
 
+
 //import { Bar as ProgressBar } from 'react-native-progress';
 import { levelbar } from "../../editor/levelbar";
 import {getRandomInt} from "../../editor/getRandomInt";
@@ -44,11 +45,10 @@ export default function Main(){
         let tem = fs.map(item =>{
                    var iid = parseInt(item.id);
                    var nw = newfs[iid - 1];
-               //   return {...item, value: nw, weight: 1, merlinweight: getRandomInt(5,16)*0.1};
                if(item.id == "4" && sys_level == 0){
                 return {...item, value: nw, weight: 0, merlinweight: 0};
                }
-               return {...item, value: nw, weight: 1, merlinweight: 0};
+               return {...item, value: nw, weight: 1, merlinweight: getRandomInt(5,16)*0.1};
               });
 
         // and reset the size of image icons of these features       
@@ -69,7 +69,7 @@ export default function Main(){
         <div className = "main">
             <div className = "control-panel">
                 <Box sx={{m:1}}>
-               <Button variant="contained" onClick = {newgame}>Try a new spell</Button> 
+               <Button variant="contained" style={{backgroundColor: "#BF996B"}} onClick = {newgame} >Try a new spell</Button> 
                </Box>
                
                
@@ -83,9 +83,12 @@ export default function Main(){
                     borderRadius={5}
     
                     /> */}
-                
-
-               <img className = "current_level control-space" src = {UI} width = "100" height = "100" />
+            
+            <div className = "current_level control-space">
+               <img className = "level_img" src = {"../assets/Control_panel/Level-scroll_paper.png"} width = "200" height = "100" />
+               <p className = "level_text">Level {sys_level+1}</p>
+            </div>
+           
             </div>
 
             <div className = "objective-function-panel">

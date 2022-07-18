@@ -16,6 +16,25 @@
     background-color: #808080;
 }
 
+.current_level{
+    position: relative;
+    width: 200px;
+    height: 100px;
+}
+
+.level_img{
+    position: absolute;
+    width: 100%;
+}
+
+.level_text{
+    position: absolute;
+    width: 100%;
+    left: 100px;
+    bottom: 25px;
+
+}
+
 .control-space{
     margin-left: 200px;
 }
@@ -99,4 +118,9 @@
 }
 .word{
     margin: 5px 10px;
+}
+
+.add{
+    margin-left: 15px;
+    margin-right: 15px;
 }
