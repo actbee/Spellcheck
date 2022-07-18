@@ -21,6 +21,7 @@ import UI from "../../image.png";
 
 
 //import { Bar as ProgressBar } from 'react-native-progress';
+import ProgressBar from "../../editor/progress-bar.component";
 import { levelbar } from "../../editor/levelbar";
 import {getRandomInt} from "../../editor/getRandomInt";
 
@@ -64,6 +65,16 @@ export default function Main(){
 
     }
 
+    const progressbar = () => {
+        let progress = sys_level;
+        let progress_percent = progress / 10;
+        return progress_percent;
+    }
+    const testData = [
+        
+        { bgcolor: "#00695c", completed: progressbar() }
+        
+      ];
 
     return(
         <div className = "main">
@@ -72,17 +83,11 @@ export default function Main(){
                <Button variant="contained" style={{backgroundColor: "#BF996B"}} onClick = {newgame} >Try a new spell</Button> 
                </Box>
                
-               
-                {/* <ProgressBar
-                    progress={sys_level/100}
-                    color="#00ff00"
-                    borderColor="#ff0000"
-                    width={300}
-                    height={20}
-                    borderWidth={2}
-                    borderRadius={5}
-    
-                    /> */}
+                <div className="App">
+                    {testData.map((item, idx) => (
+                        <ProgressBar progress = {progressbar()}key={idx} bgcolor={item.bgcolor} completed={item.completed} />
+                    ))}
+                </div>
             
             <div className = "current_level control-space">
                <img className = "level_img" src = {"../assets/Control_panel/Level-scroll_paper.png"} width = "200" height = "100" />
