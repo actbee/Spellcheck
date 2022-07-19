@@ -18,11 +18,11 @@ import {newspell} from "../../editor/newspell";
 import {useRecoilState, useRecoilValue} from "recoil";
 import { level, currentspellname, selected_feature, features } from "../../store";
 import UI from "../../image.png";
+import { userfun, merlinfun} from "../../store";
 
 
 //import { Bar as ProgressBar } from 'react-native-progress';
 import ProgressBar from "../../editor/progress-bar.component";
-import { levelbar } from "../../editor/levelbar";
 import {getRandomInt} from "../../editor/getRandomInt";
 
 
@@ -30,6 +30,8 @@ export default function Main(){
     const sys_level = useRecoilValue(level);
     const [sn, setsn] = useRecoilState(currentspellname);
     const [fs, setfs] = useRecoilState(features);
+    const  userval = useRecoilValue(userfun);
+    const merlinval = useRecoilValue(merlinfun);
 
     //used to init the game, only run in the begining
     useEffect(() => {
@@ -66,15 +68,17 @@ export default function Main(){
     }
 
     const progressbar = () => {
-        let progress = sys_level;
-        let progress_percent = progress / 10;
-        return progress_percent;
+        let dis = 0;
+        for(let i = 0;i<userval.length; i++){
+             dis+=(userval[i]-merlinval[i])**2;
+        }
+        let num = ((100-dis)-99)*100;
+        if(num<0){
+            num = 0;
+        }
+        return num.toFixed(0);
     }
-    const testData = [
-        
-        { bgcolor: "#00695c", completed: progressbar() }
-        
-      ];
+
 
     return(
         <div className = "main">
@@ -83,11 +87,9 @@ export default function Main(){
                <Button variant="contained" style={{backgroundColor: "#BF996B"}} onClick = {newgame} >Try a new spell</Button> 
                </Box>
                
-                <div className="App">
-                    {testData.map((item, idx) => (
-                        <ProgressBar progress = {progressbar()}key={idx} bgcolor={item.bgcolor} completed={item.completed} />
-                    ))}
-                </div>
+             <div className = "control-space">
+             <ProgressBar progress = {progressbar()} completed={progressbar()} />
+             </div>  
             
             <div className = "current_level control-space">
                <img className = "level_img" src = {"../assets/Control_panel/Level-scroll_paper.png"} width = "200" height = "100" />
